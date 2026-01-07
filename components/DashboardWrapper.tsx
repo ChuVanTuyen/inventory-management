@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppSelector } from '@/libs/frontend/store/hooks';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
-import { setDarkMode, setSidebarCollapsed } from '@/lib/store/slices/global.slice';
+import { useAppDispatch, useAppSelector } from '@/libs/frontend/store/hooks';
+import { setDarkMode, setSidebarCollapsed } from '@/libs/frontend/store/slices/global.slice';
 import { Bell, Menu, Moon, Settings, Sun } from 'lucide-react';
 import Link from 'next/link';
 

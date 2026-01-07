@@ -1,7 +1,7 @@
 'use client';
 
-import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
-import { setSidebarCollapsed } from '@/lib/store/slices/global.slice';
+import { useAppDispatch, useAppSelector } from '@/libs/frontend/store/hooks';
+import { setSidebarCollapsed } from '@/libs/frontend/store/slices/global.slice';
 import { Archive, CircleDollarSign, Clipboard, Layout, LucideIcon, Menu, SlidersHorizontal, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
