@@ -17,7 +17,7 @@ import { baseApi } from '../services/baseApi';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['global', 'auth']
+  whitelist: ['global']
 };
 
 const rootReducer = combineReducers({
