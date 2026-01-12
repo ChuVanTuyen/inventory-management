@@ -1,4 +1,4 @@
-import { SalesSummary, useGetDashboardMetricsQuery } from '@/libs/frontend/services/dashboard';
+import { SalesSummary, useGetDashboardMetricsQuery } from '@/libs/frontend/services/dashboardApi';
 import { TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';

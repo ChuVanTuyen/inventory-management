@@ -54,24 +54,24 @@ export default function Sidebar() {
       label: 'Inventory',
     },
     {
-      href: '/products',
+      href: '/product',
       icon: Clipboard,
       label: 'Products',
     },
     {
-      href: '/users',
+      href: '/user',
       icon: User,
       label: 'Users',
     },
     {
-      href: '/settings',
+      href: '/setting',
       icon: SlidersHorizontal,
       label: 'Settings',
     },
     {
-      href: '/expenses',
+      href: '/expense',
       icon: CircleDollarSign,
-      label: 'expenses',
+      label: 'Expenses',
     }
   ];
 

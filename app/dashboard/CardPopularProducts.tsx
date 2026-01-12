@@ -1,5 +1,5 @@
 import Rating from '@/components/Rating';
-import { Product } from '@/libs/frontend/services/dashboard';
+import { Product } from '@/libs/frontend/services/dashboardApi';
 import { ShoppingBag } from 'lucide-react';
 
 export default function CardPopularProducts({

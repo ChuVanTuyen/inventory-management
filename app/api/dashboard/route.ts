@@ -1,12 +1,6 @@
 import { prisma } from '@/libs/backend/prisma';
+import { serializeBigInt } from '@/libs/backend/serialize-bigInt';
 import { NextResponse } from 'next/server';
-
-const serializeBigInt = (data: any) =>
-  JSON.parse(
-    JSON.stringify(data, (_, value) =>
-      typeof value === 'bigint' ? value.toString() : value
-    )
-  );
 
 export async function GET() {
   try {
@@ -15,28 +9,28 @@ export async function GET() {
       salesSummary,
       purchaseSummary,
       expenseSummary,
-      expenseByCategorySummary,
+      expenseByCategorySummary
     ] = await Promise.all([
       prisma.products.findMany({
         take: 15,
-        orderBy: { stockQuantity: 'desc' },
+        orderBy: { stockQuantity: 'desc' }
       }),
       prisma.salesSummary.findMany({
         take: 5,
-        orderBy: { date: 'desc' },
+        orderBy: { date: 'desc' }
       }),
       prisma.purchaseSummary.findMany({
         take: 5,
-        orderBy: { date: 'desc' },
+        orderBy: { date: 'desc' }
       }),
       prisma.expenseSummary.findMany({
         take: 5,
-        orderBy: { date: 'desc' },
+        orderBy: { date: 'desc' }
       }),
       prisma.expenseByCategory.findMany({
         take: 5,
-        orderBy: { date: 'desc' },
-      }),
+        orderBy: { date: 'desc' }
+      })
     ]);
 
     return NextResponse.json(
@@ -45,7 +39,7 @@ export async function GET() {
         salesSummary,
         purchaseSummary,
         expenseSummary,
-        expenseByCategorySummary,
+        expenseByCategorySummary
       })
     );
   } catch (e) {

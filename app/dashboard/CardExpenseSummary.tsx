@@ -1,4 +1,4 @@
-import { ExpenseByCategorySummary, ExpenseSummary } from '@/libs/frontend/services/dashboard';
+import { ExpenseByCategorySummary, ExpenseSummary } from '@/libs/frontend/services/dashboardApi';
 import { TrendingUp } from 'lucide-react';
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { PurchaseSummary } from '@/libs/frontend/services/dashboard';
+import { PurchaseSummary } from '@/libs/frontend/services/dashboardApi';
 import { TrendingDown, TrendingUp } from 'lucide-react';
 import numeral from 'numeral';
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
