@@ -1,15 +1,30 @@
 'use client';
 
+import Rating from '@/components/Rating';
 import Title from '@/components/Title';
-import { useGetProductsQuery } from '@/libs/frontend/services/productApi';
+import { useCreateProductMutation, useGetProductsQuery } from '@/libs/frontend/services/productApi';
 import { PlusCircleIcon, SearchIcon } from 'lucide-react';
 import { useState } from 'react';
+import CreateProductModal from './CreateProductModal';
+import { NewProduct } from '@/libs/frontend/types/global.type';
+import { isValidNumber } from '@/libs/backend/valid-number';
+
+type ProductFormData = {
+  name: string;
+  price: number;
+  stockQuantity: number;
+  rating: number;
+}
 
 export default function ProductPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: products, isLoading, isError } = useGetProductsQuery();
+  const [createProduct] = useCreateProductMutation();
+  const handleCreateProduct = async (productData: NewProduct) => {
+    await createProduct(productData); 
+  }
 
   if (isLoading) {
     return <div>loading...</div>;
@@ -59,12 +74,25 @@ export default function ProductPage() {
               <div className="flex flex-col items-center">
                 img
                 <h3 className="text-lg text-gray-900 font-semibold">{product.name}</h3>
-                <p className=''></p>
+                <p className="text-gray-800">${product.price.toFixed(2)}</p>
+                <div className="text-sm text-gray-600 mt-1">Stock: {product.stockQuantity}</div>
+                {isValidNumber(product.rating) && (
+                  <div className="flex items-center mt-2">
+                    <Rating rating={product.rating} />
+                  </div>
+                )}
               </div>
             </div>
           ))
         )}
       </div>
+
+      {/* Modal */}
+      <CreateProductModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onCreate={handleCreateProduct}
+      />
     </div>
-  );
+  )
 }
